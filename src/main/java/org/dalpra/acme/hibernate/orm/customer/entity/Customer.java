@@ -2,6 +2,8 @@ package org.dalpra.acme.hibernate.orm.customer.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @NamedQuery(name = "Customers.findAll",
         query = "SELECT c FROM Customer c ORDER BY c.id")
@@ -18,6 +20,11 @@ public class Customer {
     private String name;
     @Column(length = 40)
     private String surname;
+    @Column(length = 250)
+    private String email;
+    @Column(nullable = false)
+    private Date dob;
+
     public Long getId() {
         return id;
     }
@@ -35,5 +42,19 @@ public class Customer {
     }
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 }

@@ -74,6 +74,8 @@ table.blueTable tfoot .links a{
             <th>#</th>
             <th>Name</th>
             <th>Surname</th>
+            <th>Email</th>
+            <th>Dob</th>
             <th>Delete</th>
             <th>Update</th>
         </tr>
@@ -83,6 +85,8 @@ table.blueTable tfoot .links a{
             <td>{{user.id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.dob}}</td>
             <td>  <button class="button"  @click="deleteUser(user.id)">Delete</button></td>
             <td>  <button class="button"  @click="updateUser(user.id)">Update</button></td>
         </tr>

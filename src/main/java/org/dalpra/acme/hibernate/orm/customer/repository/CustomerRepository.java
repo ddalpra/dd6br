@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
 import org.dalpra.acme.hibernate.orm.customer.entity.Customer;
 
+import java.util.Date;
 import java.util.List;
 
 @ApplicationScoped
@@ -25,10 +26,13 @@ public class CustomerRepository {
         return customer;
     }
     @Transactional
-    public void updateCustomer(Long id, String name, String surname) {
+    public void updateCustomer(Long id, String name, String surname, String email, Date dob) {
         Customer customerToUpdate = findCustomerById(id);
         customerToUpdate.setName(name);
         customerToUpdate.setSurname(surname);
+        customerToUpdate.setEmail(email);
+        customerToUpdate.setDob(dob);
+        entityManager.persist(customerToUpdate);
     }
     @Transactional
     public void createCustomer(Customer customer) {
