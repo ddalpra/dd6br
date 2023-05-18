@@ -26,13 +26,9 @@ public class CustomerEndpoint {
         return Response.status(201).build();
     }
     @PUT
-    public Response update(@QueryParam("id") Long id,
-                           @QueryParam("name") String name,
-                           @QueryParam("surname") String surname,
-                           @QueryParam("email") String email,
-                           @QueryParam("dob") Date dob) {
-        customerRepository.updateCustomer(id, name, surname, email, dob);
-        return Response.status(204).build();
+    public Response update(Customer customer) {
+        customerRepository.updateCustomer(customer);
+        return Response.status(201).build();
     }
     @DELETE
     public Response delete(@QueryParam("id") Long customerId) {

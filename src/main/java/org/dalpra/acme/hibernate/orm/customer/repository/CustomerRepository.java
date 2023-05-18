@@ -26,13 +26,14 @@ public class CustomerRepository {
         return customer;
     }
     @Transactional
-    public void updateCustomer(Long id, String name, String surname, String email, Date dob) {
-        Customer customerToUpdate = findCustomerById(id);
-        customerToUpdate.setName(name);
-        customerToUpdate.setSurname(surname);
-        customerToUpdate.setEmail(email);
-        customerToUpdate.setDob(dob);
+    public void updateCustomer(Customer customer) {
+        Customer customerToUpdate = findCustomerById(customer.getId());
+        customerToUpdate.setName(customer.getName());
+        customerToUpdate.setSurname(customer.getSurname());
+        customerToUpdate.setEmail(customer.getEmail());
+        customerToUpdate.setDob(customer.getDob());
         entityManager.persist(customerToUpdate);
+
     }
     @Transactional
     public void createCustomer(Customer customer) {
