@@ -1,0 +1,2 @@
+INSERT INTO customer (id, name, surname, email, dob) VALUES ( nextval('customerId_seq'), 'Homer','Simpson','hsimpson@gmail.com','1970-05-23');
+INSERT INTO customer (id, name, surname, email, dob) VALUES ( nextval('customerId_seq'), 'Bart','Simpson','bsimpson@gmail.com', '1995-01-02');
