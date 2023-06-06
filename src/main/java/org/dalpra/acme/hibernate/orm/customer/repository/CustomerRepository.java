@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
 import org.dalpra.acme.hibernate.orm.customer.entity.Customer;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class CustomerRepository {
         customerToUpdate.setSurname(customer.getSurname());
         customerToUpdate.setEmail(customer.getEmail());
         customerToUpdate.setDob(customer.getDob());
+        customerToUpdate.setCreateAt(customer.getCreateAt());
+        customerToUpdate.setUpdateAt(LocalDateTime.now());
+        customerToUpdate.setState(customer.getState());
         entityManager.persist(customerToUpdate);
 
     }

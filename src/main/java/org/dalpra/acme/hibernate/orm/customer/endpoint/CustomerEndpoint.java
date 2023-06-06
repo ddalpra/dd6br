@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.Response;
 import org.dalpra.acme.hibernate.orm.customer.entity.Customer;
 import org.dalpra.acme.hibernate.orm.customer.repository.CustomerRepository;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 @Path("customers")
@@ -22,13 +23,25 @@ public class CustomerEndpoint {
     }
     @POST
     public Response create(Customer customer) {
+
+        LocalDateTime ldt = LocalDateTime.now();
+        if(customer.getCreateAt() == null){
+            customer.setCreateAt(ldt);
+        }
+        if(customer.getUpdateAt() == null){
+            customer.setUpdateAt(ldt);
+        }
         customerRepository.createCustomer(customer);
         return Response.status(201).build();
     }
     @PUT
     public Response update(Customer customer) {
-        customerRepository.updateCustomer(customer);
-        return Response.status(201).build();
+        if(!customer.isNull()) {
+            customerRepository.updateCustomer(customer);
+            return Response.status(201).build();
+        }else{
+            return Response.status(404).build();
+        }
     }
     @DELETE
     public Response delete(@QueryParam("id") Long customerId) {
