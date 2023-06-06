@@ -21,6 +21,13 @@ public class CustomerEndpoint {
     public List<Customer> getAll() {
         return customerRepository.findAll();
     }
+
+    @GET
+    @Path("/{id}")
+    public Customer getById(@PathParam("id") Long id){
+        return customerRepository.findCustomerById(id);
+    }
+
     @POST
     public Response create(Customer customer) {
 

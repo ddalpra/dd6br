@@ -19,6 +19,7 @@ public class CustomerRepository {
         return entityManager.createNamedQuery("Customers.findAll", Customer.class)
                 .getResultList();
     }
+
     public Customer findCustomerById(Long id) {
         Customer customer = entityManager.find(Customer.class, id);
         if (customer == null) {

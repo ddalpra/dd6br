@@ -12,6 +12,8 @@ import java.util.Date;
 @Entity
 @NamedQuery(name = "Customers.findAll",
         query = "SELECT c FROM Customer c ORDER BY c.id")
+@NamedQuery(name = "Customers.findById",
+        query = "SELECT c FROM Customer c WHERE c.id = :id")
 public class Customer {
     @Id
     @SequenceGenerator(
