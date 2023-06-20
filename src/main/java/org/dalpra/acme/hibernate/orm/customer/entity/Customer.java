@@ -6,6 +6,7 @@ import org.dalpra.acme.hibernate.orm.utility.Stato;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.lang.reflect.Field;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -32,7 +33,7 @@ public class Customer {
 
     @Column(nullable = false)
     @CreationTimestamp
-    private Date dob;
+    private LocalDate dob;
     @Column(nullable = false)
     @CreationTimestamp
     private LocalDateTime createAt;
@@ -66,10 +67,10 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
-    public void setDob(Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
     public LocalDateTime getCreateAt() {
