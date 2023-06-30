@@ -32,7 +32,6 @@ public class Customer {
     private String email;
 
     @Column(nullable = false)
-    @CreationTimestamp
     private LocalDate dob;
     @Column(nullable = false)
     @CreationTimestamp

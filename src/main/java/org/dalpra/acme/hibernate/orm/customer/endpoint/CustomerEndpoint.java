@@ -31,6 +31,8 @@ public class CustomerEndpoint {
     @POST
     public Response create(Customer customer) {
 
+        System.out.println(customer.toString());
+
         LocalDateTime ldt = LocalDateTime.now();
         if(customer.getCreateAt() == null){
             customer.setCreateAt(ldt);
