@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.apache.commons.lang3.ObjectUtils;
 import org.dalpra.acme.hibernate.orm.utility.Stato;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,7 +29,6 @@ public class Customer {
     private String surname;
     @Column(length = 250)
     private String email;
-
     @Column(nullable = false)
     private LocalDate dob;
     @Column(nullable = false)
@@ -91,8 +89,4 @@ public class Customer {
         this.state = state;
     }
 
-    public boolean isNull() {
-        boolean result = ObjectUtils.allNull(this);
-        return result;
-    }
 }

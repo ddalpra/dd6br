@@ -38,7 +38,6 @@ public class CustomerRepository {
         customerToUpdate.setUpdateAt(LocalDateTime.now());
         customerToUpdate.setState(customer.getState());
         entityManager.persist(customerToUpdate);
-
     }
     @Transactional
     public void createCustomer(Customer customer) {
