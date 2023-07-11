@@ -45,7 +45,7 @@ public class CustomerEndpoint {
     }
     @PUT
     public Response update(Customer customer) {
-        if(!customer.isNull()) {
+        if(customer.getId()!=null) {
             customerRepository.updateCustomer(customer);
             return Response.status(201).build();
         }else{
