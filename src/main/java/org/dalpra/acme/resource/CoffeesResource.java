@@ -40,6 +40,8 @@ public class CoffeesResource {
                 .collect(JsonCollectors.toJsonArray());
     }
 
+
+
     @GET
     @Path("{id}")
     public JsonObject getCoffee(@PathParam("id") UUID id) {
@@ -63,6 +65,15 @@ public class CoffeesResource {
                 .build(uuid);
 
         return Response.created(uri).build();
+    }
+
+    public Response updateCoffee(@PathParam("id") UUID id, JsonObject object){
+        String type = object.getString("type",null);
+
+        if(type==null)
+            throw new BadRequestException();
+
+        return Response.ok().build();
     }
 
 }
